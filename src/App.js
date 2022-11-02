@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { Api } from "./components/Api";
+import { Counter } from "./components/Counter";
+import { LoginForm } from "./components/Loginpage";
+import { Nav } from "./components/Nav";
+import { SalmanTodo } from "./components/Salmantodo";
+import { Todo } from "./components/Todo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <BrowserRouter>
+    <Nav/>
+    <Routes>
+    <Route path="/counter" element={<Counter/>}/>
+    <Route path="/api" element={<Api/>}/>
+    <Route path="/todo" element={<Todo/>}/>
+    <Route path="/login" element={<LoginForm/>}/>
+    <Route path ="salmantask" element={<SalmanTodo/>}/>
+    </Routes>
+    </BrowserRouter>
     </div>
   );
 }
